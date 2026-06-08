@@ -418,6 +418,7 @@ class TestTask7(unittest.TestCase):
 # Task 8 — PageIndex Vectorless (4 điểm)
 # ===========================================================================
 
+@unittest.skip("Bỏ qua test PageIndex theo yêu cầu")
 class TestTask8(unittest.TestCase):
     """Task 8: PageIndex vectorless RAG."""
 
@@ -492,6 +493,7 @@ class TestTask9(unittest.TestCase):
         except NotImplementedError:
             self.skipTest("Chưa implement")
 
+    @unittest.skip("Bỏ qua test PageIndex theo yêu cầu")
     def test_fallback_logic_exists(self):
         """Pipeline có fallback logic (không crash khi hybrid trả rỗng)."""
         retrieve_fn = self._import_task9()

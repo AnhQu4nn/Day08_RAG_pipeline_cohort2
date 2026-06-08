@@ -24,29 +24,71 @@ from dotenv import load_dotenv
 load_dotenv()
 
 PAGEINDEX_API_KEY = os.getenv("PAGEINDEX_API_KEY", "")
-STANDARDIZED_DIR = Path(__file__).parent.parent / "data" / "standardized"
+LEGAL_PDF_DIR = Path(__file__).resolve().parent.parent / "data" / "landing" / "legal"
+LEGAL_EXTENSIONS = {".pdf"}
+
+
+def get_pageindex_client():
+    """Create a PageIndex client across SDK versions."""
+    try:
+        from pageindex import PageIndexClient
+
+        return PageIndexClient(api_key=PAGEINDEX_API_KEY)
+    except ImportError:
+        from pageindex import PageIndex
+
+        return PageIndex(api_key=PAGEINDEX_API_KEY)
+
+
+def get_legal_pdf_files() -> list[Path]:
+    """Return source legal PDF files to upload to PageIndex."""
+    if not LEGAL_PDF_DIR.exists():
+        return []
+    return [
+        file
+        for file in sorted(LEGAL_PDF_DIR.rglob("*"))
+        if file.is_file() and file.suffix.lower() in LEGAL_EXTENSIONS
+    ]
 
 
 def upload_documents():
     """
-    Upload toàn bộ markdown documents lên PageIndex.
+    Upload toàn bộ PDF pháp luật gốc trong data/landing/legal/ lên PageIndex.
     """
-    # TODO: Implement upload
-    #
-    # Tham khảo: https://github.com/VectifyAI/PageIndex
-    #
-    # from pageindex import PageIndex
-    #
-    # pi = PageIndex(api_key=PAGEINDEX_API_KEY)
-    #
-    # for md_file in STANDARDIZED_DIR.rglob("*.md"):
-    #     content = md_file.read_text(encoding="utf-8")
-    #     pi.upload(
-    #         content=content,
-    #         metadata={"filename": md_file.name, "type": md_file.parent.name}
-    #     )
-    #     print(f"  ✓ Uploaded: {md_file.name}")
-    raise NotImplementedError("Implement upload_documents")
+    if not PAGEINDEX_API_KEY:
+        raise ValueError("Missing PAGEINDEX_API_KEY. Please set it in .env")
+
+    pi = get_pageindex_client()
+    uploaded_docs = {}
+
+    print("Bắt đầu tải các PDF pháp luật lên PageIndex...")
+    for pdf_file in get_legal_pdf_files():
+        try:
+            metadata = {
+                "filename": pdf_file.name,
+                "source_path": pdf_file.relative_to(LEGAL_PDF_DIR).as_posix(),
+                "type": "legal",
+                "format": "pdf",
+            }
+
+            if hasattr(pi, "submit_document"):
+                result = pi.submit_document(str(pdf_file))
+            else:
+                result = pi.upload(file_path=str(pdf_file), metadata=metadata)
+
+            doc_id = None
+            if isinstance(result, dict):
+                doc_id = result.get("doc_id") or result.get("id") or result.get("document_id")
+            else:
+                doc_id = getattr(result, "doc_id", None) or getattr(result, "id", None)
+
+            uploaded_docs[pdf_file.name] = doc_id
+            print(f"  ✓ Uploaded: {pdf_file.name} (ID: {doc_id})")
+        except Exception as e:
+            print(f"  ✕ Lỗi khi tải tệp {pdf_file.name}: {e}")
+
+    print(f"\nHoàn thành! Đã tải lên thành công {len(uploaded_docs)} tài liệu.")
+    return uploaded_docs
 
 
 def pageindex_search(query: str, top_k: int = 5) -> list[dict]:
@@ -66,23 +108,35 @@ def pageindex_search(query: str, top_k: int = 5) -> list[dict]:
             'source': 'pageindex'   # Đánh dấu nguồn retrieval
         }
     """
-    # TODO: Implement PageIndex query
-    #
-    # from pageindex import PageIndex
-    #
-    # pi = PageIndex(api_key=PAGEINDEX_API_KEY)
-    # results = pi.query(query=query, top_k=top_k)
-    #
-    # return [
-    #     {
-    #         "content": r.text,
-    #         "score": r.score,
-    #         "metadata": r.metadata,
-    #         "source": "pageindex"
-    #     }
-    #     for r in results
-    # ]
-    raise NotImplementedError("Implement pageindex_search")
+    if not PAGEINDEX_API_KEY:
+        raise ValueError("Missing PAGEINDEX_API_KEY. Please set it in .env")
+
+    pi = get_pageindex_client()
+    if hasattr(pi, "query"):
+        raw_results = pi.query(query=query, top_k=top_k)
+    else:
+        raw_results = pi.search(query=query, top_k=top_k)
+
+    results = []
+    for result in raw_results:
+        if isinstance(result, dict):
+            content = result.get("text") or result.get("content") or result.get("chunk") or ""
+            score = result.get("score") or result.get("relevance_score") or 0.0
+            metadata = result.get("metadata") or {}
+        else:
+            content = getattr(result, "text", None) or getattr(result, "content", "")
+            score = getattr(result, "score", 0.0)
+            metadata = getattr(result, "metadata", {}) or {}
+
+        metadata = {**metadata, "type": metadata.get("type", "legal"), "format": "pdf"}
+        results.append({
+            "content": content,
+            "score": float(score),
+            "metadata": metadata,
+            "source": "pageindex",
+        })
+
+    return results[:top_k]
 
 
 if __name__ == "__main__":

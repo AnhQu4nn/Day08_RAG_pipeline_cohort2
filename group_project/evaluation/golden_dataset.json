@@ -1,17 +1,77 @@
 [
-  {
-    "question": "Hình phạt cho tội tàng trữ trái phép chất ma tuý theo Điều 249 Bộ luật Hình sự?",
-    "expected_answer": "Phạt tù từ 1 đến 5 năm đối với trường hợp tàng trữ từ 1g đến dưới 5g heroin hoặc cocaine, hoặc chất ma tuý khác với khối lượng tương đương.",
-    "expected_context": "Bộ luật Hình sự 2015, Điều 249"
-  },
-  {
-    "question": "Luật Phòng chống ma tuý 2021 quy định những hình thức cai nghiện nào?",
-    "expected_answer": "Cai nghiện tự nguyện tại gia đình, cai nghiện tự nguyện tại cộng đồng, cai nghiện tự nguyện tại cơ sở cai nghiện, và cai nghiện bắt buộc tại cơ sở cai nghiện.",
-    "expected_context": "Luật Phòng chống ma tuý 2021, Chương V"
-  },
-  {
-    "question": "Danh mục các chất ma tuý thuộc nhóm I theo quy định pháp luật Việt Nam gồm những chất nào?",
-    "expected_answer": "Nhóm I gồm các chất ma tuý tuyệt đối cấm sử dụng trong y học và đời sống, bao gồm heroin, cocaine, methamphetamine, MDMA (ecstasy), cannabis (cần sa), và các chất tương tự.",
-    "expected_context": "Nghị định 57/2022/NĐ-CP, Phụ lục I"
-  }
+	{
+		"question": "Hình phạt cho tội tàng trữ trái phép chất ma túy theo Điều 249 Bộ luật Hình sự?",
+		"expected_answer": "Phạt tù từ 1 đến 5 năm đối với trường hợp tàng trữ từ 1g đến dưới 5g heroin hoặc cocaine, hoặc chất ma túy khác với khối lượng tương đương.",
+		"expected_context": "Bộ luật Hình sự 2015, Điều 249"
+	},
+	{
+		"question": "Luật Phòng chống ma túy 2021 quy định những hình thức cai nghiện nào?",
+		"expected_answer": "Cai nghiện tự nguyện tại gia đình, cai nghiện tự nguyện tại cộng đồng, cai nghiện tự nguyện tại cơ sở cai nghiện, và cai nghiện bắt buộc tại cơ sở cai nghiện.",
+		"expected_context": "Luật Phòng chống ma túy 2021, Chương V"
+	},
+	{
+		"question": "Danh mục các chất ma túy thuộc nhóm I theo quy định pháp luật Việt Nam gồm những chất nào?",
+		"expected_answer": "Nhóm I gồm các chất ma túy tuyệt đối cấm sử dụng trong y học và đời sống, bao gồm heroin, cocaine, methamphetamine, MDMA (ecstasy), cannabis (cần sa), và các chất tương tự.",
+		"expected_context": "Nghị định 57/2022/NĐ-CP, Phụ lục I"
+	},
+	{
+		"question": "Ca sĩ nghiện ma túy nổi tiếng nào bị khởi tố, bắt giữ theo thông tin từ Công an TPHCM?",
+		"expected_answer": "Ca sĩ Chi Dân",
+		"expected_context": "Công an TPHCM thông tin vụ khởi tố, bắt giữ ca sĩ Chi Dân và người mẫu An Tây"
+	},
+	{
+		"question": "Ai là người mẫu bị khởi tố, bắt giữ cùng ca sĩ Chi Dân trong vụ án ma túy?",
+		"expected_answer": "An Tây",
+		"expected_context": "Công an TPHCM thông tin vụ khởi tố, bắt giữ ca sĩ Chi Dân và người mẫu An Tây"
+	},
+	{
+		"question": "Nguồn thông tin nào xác nhận việc khởi tố, bắt giữ ca sĩ Chi Dân và người mẫu An Tây?",
+		"expected_answer": "Công an TPHCM",
+		"expected_context": "Công an TPHCM thông tin vụ khởi tố, bắt giữ ca sĩ Chi Dân và người mẫu An Tây"
+	},
+	{
+		"question": "Vụ việc ca sĩ Chi Dân và người mẫu An Tây bị khởi tố, bắt giữ được thông tin bởi cơ quan nào?",
+		"expected_answer": "Công an TPHCM.",
+		"expected_context": "Nguồn: Công an TPHCM thông tin vụ khởi tố, bắt giữ ca sĩ Chi Dân và người mẫu An Tây\n# Công an TPHCM thông tin vụ khởi tố, bắt giữ ca sĩ Chi Dân và người mẫu An Tây\n\n**Source:** https://vietnamnet.vn/cong-an-tphcm-thong-tin-vu-2-khoi-to-bat-giu-ca-si-chi-dan-va-nguoi-mau-an-tay-2341921.html\n\n**Crawled:** 2026-06-08T16:17:30.173947"
+	},
+	{
+		"question": "Hành vi sử dụng chất, hóa chất, kháng sinh cấm trong sản xuất thực phẩm trị giá bao nhiêu thì đủ yếu tố cấu thành tội vi phạm quy định về an toàn thực phẩm theo Khoản 1 Điều 317?",
+		"expected_answer": "Sản phẩm phải có trị giá từ 10.000.000 đồng đến dưới 100.000.000 đồng; hoặc dưới 10.000.000 đồng nhưng đã bị xử phạt vi phạm hành chính về hành vi này hoặc đã bị kết án về tội này, chưa được xóa án tích mà còn vi phạm.",
+		"expected_context": "Văn bản hợp nhất số 01/VBHN-VPQH hợp nhất Bộ luật Hình sự, Điều 317, Khoản 1, Điểm a"
+	},
+	{
+		"question": "Mức phạt tù cao nhất đối với tội vi phạm quy định về an toàn thực phẩm là bao nhiêu năm và áp dụng trong trường hợp nào?",
+		"expected_answer": "Mức phạt tù cao nhất là từ 12 năm đến 20 năm. Áp dụng khi làm chết 03 người trở lên; gây ngộ độc ảnh hưởng nghiêm trọng đến sức khỏe của 201 người trở lên; gây tổn hại sức khỏe cho 03 người trở lên với tổng tỷ lệ tổn thương cơ thể 201% trở lên; hoặc thực phẩm sử dụng chất cấm trị giá 500.000.000 đồng trở lên/thu lợi bất chính 300.000.000 đồng trở lên (hoặc các trường hợp động vật chết do dịch bệnh, chất chưa được phép lưu hành với định lượng tương ứng quy định tại Khoản 4).",
+		"expected_context": "Văn bản hợp nhất số 01/VBHN-VPQH hợp nhất Bộ luật Hình sự, Điều 317, Khoản 4"
+	},
+	{
+		"question": "Hành vi gây rối trật tự công cộng thuộc trường hợp nào thì bị phạt tù từ 02 năm đến 07 năm theo quy định tại Điều 318?",
+		"expected_answer": "Có tổ chức; dùng vũ khí, hung khí hoặc có hành vi phá phách; gây cản trở giao thông nghiêm trọng hoặc gây đình trệ hoạt động công cộng; xúi giục người khác gây rối; hành hung người can thiệp bảo vệ trật tự công cộng; tái phạm nguy hiểm.",
+		"expected_context": "Văn bản hợp nhất số 01/VBHN-VPQH hợp nhất Bộ luật Hình sự, Điều 318, Khoản 2"
+	},
+	{
+		"question": "Khung hình phạt cơ bản đối với người có hành vi cố ý làm lộ bí mật nhà nước hoặc chiếm đoạt, mua bán, tiêu hủy tài liệu bí mật nhà nước là gì?",
+		"expected_answer": "Bị phạt tù từ 02 năm đến 07 năm (nếu không thuộc trường hợp gián điệp tại Điều 110).",
+		"expected_context": "Văn bản hợp nhất số 01/VBHN-VPQH hợp nhất Bộ luật Hình sự, Điều 337, Khoản 1"
+	},
+	{
+		"question": "Người nào vô ý làm lộ bí mật nhà nước hoặc làm mất vật, tài liệu bí mật nhà nước thì đối mặt với hình phạt nào tại Khoản 1 Điều 338?",
+		"expected_answer": "Bị phạt cải tạo không giam giữ đến 03 năm hoặc phạt tù từ 06 tháng đến 03 năm.",
+		"expected_context": "Văn bản hợp nhất số 01/VBHN-VPQH hợp nhất Bộ luật Hình sự, Điều 338, Khoản 1"
+	},
+	{
+		"question": "Tội làm giả con dấu, tài liệu của cơ quan, tổ chức hoặc sử dụng con dấu, tài liệu giả bị phạt tù từ 03 năm đến 07 năm trong những trường hợp nào?",
+		"expected_answer": "Làm 06 con dấu, tài liệu hoặc giấy tờ khác trở lên; sử dụng con dấu, tài liệu hoặc giấy tờ khác thực hiện tội phạm rất nghiêm trọng hoặc tội phạm đặc biệt nghiêm trọng; hoặc thu lợi bất chính 50.000.000 đồng trở lên.",
+		"expected_context": "Văn bản hợp nhất số 01/VBHN-VPQH hợp nhất Bộ luật Hình sự, Điều 341, Khoản 3"
+	},
+	{
+		"question": "Công dân có hành vi trốn tránh nghĩa vụ quân sự bị xử lý hình sự theo Điều 332 trong trường hợp nào?",
+		"expected_answer": "Không chấp hành đúng quy định về đăng ký nghĩa vụ quân sự, không chấp hành lệnh gọi nhập ngũ, lệnh gọi tập trung huấn luyện, khi đã bị xử phạt vi phạm hành chính về hành vi này hoặc đã bị kết án về tội này, chưa được xóa án tích mà còn vi phạm.",
+		"expected_context": "Văn bản hợp nhất số 01/VBHN-VPQH hợp nhất Bộ luật Hình sự, Điều 332, Khoản 1"
+	},
+	{
+		"question": "Pháp nhân thương mại phạm tội tài trợ khủng bố (Điều 300) thì hình phạt chính được áp dụng như thế nào?",
+		"expected_answer": "Bị phạt tiền từ 7.000.000.000 đồng đến 15.000.000.000 đồng hoặc đình chỉ hoạt động có thời hạn từ 06 tháng đến 03 năm; phạm tội thuộc trường hợp quy định tại Điều 79 thì bị đình chỉ hoạt động vĩnh viễn.",
+		"expected_context": "Văn bản hợp nhất số 01/VBHN-VPQH hợp nhất Bộ luật Hình sự, Điều 300, Khoản 4, Điểm a và Điểm b"
+	}
 ]
